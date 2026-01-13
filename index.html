@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SI Paling ZI</title>
+    
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon.png">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: #fff; }
+        
+        .iframe-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        iframe {
+            width: 100%;
+            border: none;
+            position: absolute;
+            
+            /* --- PENGATURAN POTONG BANNER --- */
+            /* Jika banner masih terlihat, ubah -25px menjadi -30px atau lebih */
+            top: -25px; 
+            
+            /* Kompensasi tinggi agar bagian bawah tidak naik */
+            height: calc(100% + 25px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="iframe-container">
+        <iframe 
+            src="https://script.google.com/macros/s/AKfycbzruLf06Z-3OXT2Fyacb5vUmgC6d-276CCkM6eXuLEc1zKoc7dY3Hkgp-E-KNgUMPEEfg/exec"
+            allow="geolocation; microphone; camera">
+        </iframe>
+    </div>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+            .then(() => console.log('Service Worker Registered'));
+        }
+    </script>
+</body>
+</html>
